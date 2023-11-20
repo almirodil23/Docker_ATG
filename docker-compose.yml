@@ -1,0 +1,12 @@
+version: "3.1"
+services:
+  api: 
+    image: almirodil/node-server
+    ports: 
+       - "8080:3050"
+  mongo_svr:
+    image: almirodil/mongo_atg
+    ports:
+            - '27016:27017'      
+
+

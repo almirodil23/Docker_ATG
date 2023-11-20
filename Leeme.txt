@@ -1,0 +1,10 @@
+Primera versión funcional en local.
+La api escucha por el puerto 3050
+La bd escucha por el 27017
+
+1. Vamos a intentar montar la bd en un contenedor y dejar el api en local
+Pasamos a docker:
+ - necesitamos un fichero dockerfile en db para montar la base de datos
+
+nueva prueba
+as
