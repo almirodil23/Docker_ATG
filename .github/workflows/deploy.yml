@@ -1,32 +1,18 @@
-name: Deploy to Heroku
+name: Deploy
 
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Set up Heroku CLI
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18.17.0'
-        registry-url: 'https://registry.npmjs.org'
-    - run: npm install -g heroku
-
-    - name: Login to Heroku
-      run: heroku container:login
-
-    - name: Build and push Docker image
-      run: |
-        heroku container:push -a atg web
-        heroku container:release -a atg web
-
-    env:
-      HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.14 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "atg" #Must be unique in Heroku
+          heroku_email: "almirodil@gmail"
+          usedocker: true
