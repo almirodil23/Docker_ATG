@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    remote_branch:
+    branch:
       - master
     
 
@@ -18,5 +18,6 @@ jobs:
           heroku_app_name: "atg" #Must be unique in Heroku
           heroku_email: "almirodil@gmail"
           usedocker: true
+          remote-branch: "master"
 
 
